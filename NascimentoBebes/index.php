@@ -23,7 +23,7 @@ if($sql->rowCount() > 0);
             <table cellpadding="2" cellspacing="3" class="table table-dark table-striped">
                 <tr>
                     <td>Pesquisa</td>
-                    <td><input type="text" name="marca" placeholder="Pesquisar"></td>
+                    <td><input type="text" name="codBebe" placeholder="Pesquisar"></td>
                     <td colspan="2"><button type="submit" name="Procurar"class="btn btn-primary">Procurar</button> </td>
                 </tr>
         </form>
@@ -45,6 +45,7 @@ if($sql->rowCount() > 0);
             <th>NOME DO PAI</th>
             <th>ENDERECO</th>
             <th>CONTACTO</th>
+            <th>Accoes</th>
         </tr>
 
        
@@ -62,6 +63,7 @@ if($sql->rowCount() > 0);
         <td><?=$pacientes['contactop'];?></td>
         <td><?=$pacientes['enderecop'];?></td>
         <td>
+
         <a href="editar.php?id_paciente=<?php echo $pacientes['id_paciente']; ?>">Editar</a>
 
         <a href="excluir.php?id_paciente=<?php echo $pacientes['id_paciente']; ?>">Excluir</a>
@@ -126,7 +128,7 @@ if($sql->rowCount() > 0);
                 } ?>
                 <tr>
                     <td colspan="6">
-                        <center>Nao foram encontrados registos!
+                        <center></center>
                     </td>
                 <tr>
                 <?php }

@@ -8,7 +8,7 @@ if(isset($_GET['id_paciente'])) {
     
     // Consulta para selecionar o cliente com base no ID
     $consulta = $pdo->prepare("SELECT * FROM pacientes WHERE id_paciente= ?");
-    $consulta->execute([$id_pacientee]);
+    $consulta->execute([$id_paciente]);
     $pacientes = $consulta->fetch(PDO::FETCH_ASSOC);
     
     if(!$pacientes) {
@@ -39,8 +39,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
     // Atualize o cliente no banco de dados
-    $atualizar = $pdo->prepare("UPDATE pacientes SET id_paciente = ?, codBebe  = ?, dataNascimento = ?, tipoParto = ?, situacaoMedica = ?, nomeMae  = ?, endereco  = ?, contacto, nomePai  = ?, enderecop  = ?, contactop  = ? WHERE id_paciente = ?");
-    $atualizar->execute([$dados[' id_paciente'], $dados['codBebe'], $dados['dataNascimento'],  $dados['tipoParto'],  $dados['situacaoMedica'],  $dados['nomeMae'],   $dados['endereco'], $dados['nomePai'],   $dados['enderecop'],  $dados['contactop'],  $id_paciente]);
+    $atualizar = $pdo->prepare("UPDATE pacientes SET id_paciente = ?, codBebe = ?, dataNascimento = ?, tipoParto = ?, situacaoMedica = ?, nomeMae = ?, endereco = ?, contacto = ?, nomePai = ?, enderecop = ?, contactop = ? WHERE id_paciente = ?");
+    $atualizar->execute([$dados['id_paciente'], $dados['codBebe'], $dados['dataNascimento'], $dados['tipoParto'], $dados['situacaoMedica'], $dados['nomeMae'], $dados['endereco'], $dados['contacto'], $dados['nomePai'], $dados['enderecop'], $dados['contactop'], $id_paciente]);
+    
     
     echo "Paciente atualizado com sucesso.";
       
@@ -68,8 +69,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" id="codBebe" name="codBebe" value="<?= $pacientes['codBebe'] ?>"><br>
         
 
-        <label for="dataNascimento">DATA DE nascimento:</label>
-        <input type="text" id="dataNascimento" name="modelo" value="<?= $Pacientes['dataNascimento'] ?>"><br>
+        <label for="dataNascimento">Data de nascimento:</label>
+        <input type="text" id="dataNascimento" name="dataNascimento" value="<?= $pacientes['dataNascimento'] ?>"><br>
 
         <label for="tipoParto">Tipo de parto:</label>
         <input type="text" id="tipoParto" name="tipoParto" value="<?= $pacientes['tipoParto'] ?>"><br>
@@ -77,7 +78,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
       <label for="">situacao Medica</label>
         <input type="text" id="situacaoMedica" name="situacaoMedica" value="<?= $pacientes['situacaoMedica'] ?>"><br>
      <label for="nomeMae"> Nome da Mae</label>
-        <input type="text" id=" nomeMae" name=" nomeMae" value="<?= $pacientes[' nomeMae'] ?>"><br>
+        <input type="text" id=" nomeMae" name=" nomeMae" value="<?= $pacientes['nomeMae'] ?>"><br>
 
        <label for="">endereco</label>
         <input type="text" id="endereco" name="endereco" value="<?= $pacientes['endereco'] ?>"><br>
@@ -86,7 +87,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" id="contacto" name="contacto" value="<?= $pacientes['contacto'] ?>"><br>
 
         <label for="nomePai"> Nome do Pai</label>
-        <input type="text" id=" nomepai" name=" nomePai" value="<?= $pacientes[' nomePai'] ?>"><br>
+        <input type="text" id=" nomepai" name=" nomePai" value="<?= $pacientes['nomePai'] ?>"><br>
        <label for="">endereco</label>
         <input type="text" id="enderecop" name="enderecop" value="<?= $pacientes['enderecop'] ?>"><br>
         <label for="">contacto</label>

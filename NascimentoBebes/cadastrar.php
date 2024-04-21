@@ -6,7 +6,7 @@
     <title>Cadastro de nascimento de Bebes</title>
 
  <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src=""></script>
 
 </head>
 <body>
@@ -18,7 +18,7 @@
         <span class="span-required"> s </span>
         <label for="dataNascimento">dataNascimento:</label>
         <input type="text" name="dataNascimento" class="inputs required">
-        <span class="span-required" >Invalido </span>
+        <span class="span-required" > </span>
 
         <label for="tipoParto">Tipo de parto:</label>
         <input type="text" name="tipoParto" class="inputs required">
@@ -44,14 +44,17 @@
 
         <label for="contactop">Contactop:</label>
         <input type="text" name="contactop" class="inputs required">
+        <input type="submit" value="Enviar">
+</form>
 
-    </form>
+  
 
     <?php
 require 'connect.php';
 
+
 $codBebe     = filter_input(INPUT_POST, 'codBebe');
-$dataNascimento    = filter_input(INPUT_POST, 'dataNascimento ');
+$dataNascimento = filter_input(INPUT_POST, 'dataNascimento');
 $tipoParto    = filter_input(INPUT_POST, 'tipoParto', FILTER_VALIDATE_INT);
 $situacaoMedica = filter_input(INPUT_POST, 'situacaoMedica');
 $nomeMae = filter_input(INPUT_POST, 'nomeMae', FILTER_VALIDATE_FLOAT);
@@ -70,7 +73,7 @@ $contacto = filter_input(INPUT_POST, 'contactop', FILTER_VALIDATE_FLOAT);
     $sql->bindParam(':tipoParto', $tipoParto);
     $sql->bindParam(':situacaoMedica', $situacaoMedica);
     $sql->bindParam(':nomeMae', $nomeMae);
-    $sql->bindParam(':endereco', $enderec);
+    $sql->bindParam(':endereco', $endereco);
     $sql->bindParam(':contacto', $contacto);
     $sql->bindParam(':nomePai', $nomePai);
     $sql->bindParam(':enderecop', $enderecop);
