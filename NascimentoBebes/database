@@ -1,0 +1,19 @@
+CREATE DATABASE Nascimentos;
+use Nascimentos;
+CREATE TABLE pacientes (
+    codBebe INT AUTO_INCREMENT PRIMARY KEY,
+    dataNascimento DATE NOT NULL,
+    tipoParto VARCHAR(255) NOT NULL,
+    situacaoMedica VARCHAR(255) NOT NULL,
+    nomeMae VARCHAR(255) NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
+    contacto VARCHAR(20) NOT NULL,
+    nomePai VARCHAR(255) NOT NULL,
+    enderecop VARCHAR(255) NOT NULL,
+    contactop VARCHAR(20) NOT NULL
+);
+INSERT INTO pacientes (dataNascimento, tipoParto, situacaoMedica, nomeMae, endereco, contacto, nomePai, enderecop, contactop) 
+VALUES 
+('2022-01-01', 'Normal', 'Saudável', 'Maria Silva', 'Rua das Flores, 123', '123456789', 'João Silva', 'Avenida Principal, 456', '987654321'),
+('2022-02-15', 'Cesariana', 'Prematuro', 'Ana Santos', 'Avenida Central, 456', '987654321', 'Pedro Santos', 'Rua da Praia, 789', '123456789'),
+('2022-03-20', 'Normal', 'Saudável', 'Carla Pereira', 'Rua das Árvores, 789', '987654321', 'Antônio Pereira', 'Avenida das Montanhas, 101', '987654321');
